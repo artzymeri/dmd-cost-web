@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive or private pages
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /private/
+
+# Prevent search results pages from being indexed
+Disallow: /search?
+
+# Block potential duplicate or sensitive pages (optional)
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /wp-login.php  # If using WordPress
+
+# Add a crawl-delay (if the site gets slow due to excessive crawling)
+Crawl-delay: 10
+
+# Specify the sitemap location
+Sitemap: https://www.dmdcosts.co.uk/sitemap.xml
