@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-// import AboutPage from './components/Pages/AboutPage';
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import BlogPage from './components/Pages/BlogPage';
 import BlogDetailsPage from './components/Pages/BlogDetailsPage';
 // import ContactPage from './components/Pages/ContactPage';
@@ -28,7 +28,10 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <>
+    <HelmetProvider>
+      <Helmet>
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -90,7 +93,7 @@ function App() {
         </Route> */}
         <Route path="*" element={<ErrorPage />} />
       </Routes>
-    </>
+    </HelmetProvider>
   );
 }
 

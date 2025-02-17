@@ -166,7 +166,7 @@ export default function Header({ variant }) {
                             alignItems: "center",
                           }}
                         >
-                          <Link
+                            <Link
                             style={{
                               display: "flex",
                               width: "80px",
@@ -179,7 +179,7 @@ export default function Header({ variant }) {
                             to="https://www.linkedin.com/company/dmd-costs"
                           >
                             <Icon icon="fa6-brands:linkedin-in" />
-                          </Link>
+                            </Link>
                         </div>
                       </Div>
                     </Div>

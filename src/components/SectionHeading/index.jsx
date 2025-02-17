@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import parse from 'html-react-parser';
 import Button from '../Button';
 import Spacing from '../Spacing';

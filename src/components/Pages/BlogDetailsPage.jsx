@@ -56,7 +56,7 @@ export default function BlogDetailsPage() {
         <Cta 
           title="Let’s discuss and <br />let's <i>partner</i> together"
           bgSrc='/images/cta_bg.jpeg'
-        />
+        /> */}
       </Div>
     </>
   );
