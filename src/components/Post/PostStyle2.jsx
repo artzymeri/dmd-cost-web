@@ -4,7 +4,8 @@ import Button from '../Button'
 import Div from '../Div'
 import './post.scss'
 
-export default function PostStyle2({thumb, title, subtitle, date, category, categoryHref, href}) {
+export default function PostStyle2({thumb, title, subtitle, date, category, categoryHref, id}) {
+  const href = `/blog/${id}`
   return (
     <Div className="cs-post cs-style2">
       <Link to={href} className="cs-post_thumb cs-radius_15">

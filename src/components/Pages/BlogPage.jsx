@@ -35,7 +35,7 @@ export default function BlogPage() {
                   date={item.date}
                   category={item.min_read}
                   categoryHref={item.categoryHref}
-                  href={item.href}
+                  id={item?.id}
                 />
                 {Blogs.length > index + 1 && <Spacing lg="95" md="60" />}
               </Div>
@@ -48,9 +48,7 @@ export default function BlogPage() {
       <Spacing lg="150" md="80" />
       <Div className="container">
         <Cta
-          title="Let’s disscuse make <br />something <i>cool</i> together"
-          btnText="Apply For Meeting"
-          btnLink="/contact"
+          title="Let’s discuss and <br />let's <i>partner</i> together"
           bgSrc="/images/cta_bg.jpeg"
         />
       </Div>

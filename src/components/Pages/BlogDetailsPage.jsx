@@ -8,9 +8,7 @@ import Blogs from "../../blogs/blogs";
 
 export default function BlogDetailsPage() {
   const params = useParams();
-  console.log(params);
   const blogDetails = Blogs.find((blog) => blog.id == params.blogDetailsId);
-  console.log(blogDetails);
   pageTitle("Blog Details");
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,12 +53,10 @@ export default function BlogDetailsPage() {
       </Div>
       <Spacing lg="150" md="80" />
       <Div className="container">
-        {/* <Cta 
-          title='Let’s disscuse make <br />something <i>cool</i> together' 
-          btnText='Apply For Meeting' 
-          btnLink='/contact' 
+        <Cta 
+          title="Let’s discuss and <br />let's <i>partner</i> together"
           bgSrc='/images/cta_bg.jpeg'
-        /> */}
+        />
       </Div>
     </>
   );

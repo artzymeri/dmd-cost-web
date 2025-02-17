@@ -1,18 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import SocialWidget from '../Widget/SocialWidget';
-import Newsletter from '../Widget/Newsletter';
-import './header.scss';
-import ContactInfoWidget from '../Widget/ContactInfoWidget';
-import Div from '../Div';
-import DropDown from './DropDown';
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import SocialWidget from "../Widget/SocialWidget";
+import Newsletter from "../Widget/Newsletter";
+import "./header.scss";
+import ContactInfoWidget from "../Widget/ContactInfoWidget";
+import Div from "../Div";
+import DropDown from "./DropDown";
+import Spacing from "../Spacing";
+import { Icon } from "@iconify/react/dist/iconify.js";
+import emailjs from "@emailjs/browser";
 
 export default function Header({ variant }) {
   const [isSticky, setIsSticky] = useState(false);
   const [sideHeaderToggle, setSideHeaderToggle] = useState(false);
   const [mobileToggle, setMobileToggle] = useState(false);
+
+  const [messageObj, setMessageObj] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const sendMessage = () => {
+    emailjs
+      .send(
+        "service_w7bcwy9", // Your EmailJS service ID
+        "template_rlbz05d", // Your EmailJS template ID
+        {
+          from_email: messageObj.email, // Replace with actual recipient's name
+          from_name: messageObj.name, // Sender's name from state
+          message: messageObj.message, // Message from state
+        },
+        "cIqLDI8jpPo_W7eG9" // Your actual EmailJS public key
+      )
+      .then(
+        () => {
+          setSideHeaderToggle(false);
+          setMessageObj({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
         setIsSticky(true);
       } else {
@@ -38,251 +75,115 @@ export default function Header({ variant }) {
               </Div>
               <Div className="cs-main_header_center">
                 <Div className="cs-nav cs-primary_font cs-medium">
-                  <ul
-                    className="cs-nav_list"
-                    style={{ display: `${mobileToggle ? 'block' : 'none'}` }}
+                  <div
+                    className="cs-nav_list_mobile"
+                    style={{
+                      display: `${mobileToggle ? "block" : "none"}`,
+                      top: "0px",
+                      padding: "50px",
+                    }}
                   >
-                    <li>
-                      {/* <NavLink to="/" onClick={() => setMobileToggle(false)}>
-                        Home
-                      </NavLink> */}
-                      {/* <DropDown>
-                        <ul>
-                          <li>
-                            <Link to="/" onClick={() => setMobileToggle(false)}>
-                              Main Home
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="photography-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Photography Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="creative-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Creative Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="digital-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Digital Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="marketing-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Marketing Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="freelancer-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Freelancer Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="architecture-agency"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Architecture Agency
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="creative-solution"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Creative Solution
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="personal-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Personal Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="showcase-portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Showcase Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="case-study-showcase"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Case Study Showcase
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="video-showcase"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Video Showcase
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown> */}
-                    </li>
-                    {/* <li>
-                      <NavLink
-                        to="about"
-                        onClick={() => setMobileToggle(false)}
+                    <Div className="cs-side_header_in">
+                      <Div
+                        className="cs-side_header_box"
+                        style={{ marginTop: "100px" }}
                       >
-                        About
-                      </NavLink>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <NavLink
-                        to="service"
-                        onClick={() => setMobileToggle(false)}
+                        <h6>Do you want to connect with us?</h6>
+                      </Div>
+                      <Div>
+                        <form action="#" className="row">
+                          <Div className="col-sm-6">
+                            <label className="cs-primary_color">
+                              Full Name
+                            </label>
+                            <input
+                              onChange={(e) => {
+                                setMessageObj({
+                                  ...messageObj,
+                                  name: e.target.value,
+                                });
+                              }}
+                              type="text"
+                              className="cs-form_field"
+                            />
+                            <Spacing lg="20" md="20" />
+                          </Div>
+                          <Div className="col-sm-6">
+                            <label className="cs-primary_color">Email</label>
+                            <input
+                              onChange={(e) => {
+                                setMessageObj({
+                                  ...messageObj,
+                                  email: e.target.value,
+                                });
+                              }}
+                              type="text"
+                              className="cs-form_field"
+                            />
+                            <Spacing lg="20" md="20" />
+                          </Div>
+                          <Div className="col-sm-12">
+                            <label className="cs-primary_color">Message</label>
+                            <textarea
+                              cols="30"
+                              rows="7"
+                              className="cs-form_field"
+                              onChange={(e) => {
+                                setMessageObj({
+                                  ...messageObj,
+                                  message: e.target.value,
+                                });
+                              }}
+                            ></textarea>
+                            <Spacing lg="25" md="25" />
+                          </Div>
+                          <Div>
+                            <button
+                              onClick={() => {
+                                sendMessage();
+                              }}
+                              style={{display: 'flex', alignItems: 'center', gap: '10px',padding: '8px', border: 'transparent', backgroundColor: 'var(--accent)', color: '#fff', borderRadius: '15px'}}
+                            >
+                              <span style={{ display: "block !important" }}>
+                                Send Message
+                              </span>
+                              <Icon icon="bi:arrow-right" />
+                            </button>
+                          </Div>
+                        </form>
+                      </Div>
+                      <Div
+                        className="cs-side_header_box"
+                        style={{ marginTop: "30px" }}
                       >
-                        Services
-                      </NavLink>
-                      <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              to="service"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Services
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/service/service-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Service Details
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown>
-                    </li>
-                    <li className="menu-item-has-children">
-                      <NavLink
-                        to="portfolio"
-                        onClick={() => setMobileToggle(false)}
-                      >
-                        Portfolio
-                      </NavLink>
-                      <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              to="portfolio"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Portfolio
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="portfolio/portfolio-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Portfolio Details
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown>
-                    </li> */}
-                    {/* <li>
-                      <NavLink to="blog" onClick={() => setMobileToggle(false)}>
-                        Blog
-                      </NavLink>
-                      <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              to="blog"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Blog
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="blog/blog-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Blog Details
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown>
-                    </li> */}
-                    {/* <li className="menu-item-has-children">
-                      <Link to="/" onClick={() => setMobileToggle(false)}>
-                        Pages
-                      </Link>
-                      <DropDown>
-                        <ul>
-                          <li>
-                            <Link
-                              to="/contact"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Contact
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/team"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Team
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/team/team-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Team Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/case-study/case-study-details"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              Case Study Details
-                            </Link>
-                          </li>
-                          <li>
-                            <Link
-                              to="/faq"
-                              onClick={() => setMobileToggle(false)}
-                            >
-                              FAQ
-                            </Link>
-                          </li>
-                        </ul>
-                      </DropDown>
-                    </li> */}
-                  </ul>
+                        <ContactInfoWidget title="Contact Us" withIcon />
+                      </Div>
+                      <Div className="cs-side_header_box">
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "flex-start",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Link
+                            style={{
+                              display: "flex",
+                              width: "80px",
+                              height: "80px",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              border: "1px solid white",
+                              borderRadius: "50%",
+                            }}
+                            to="https://www.linkedin.com/company/dmd-costs"
+                          >
+                            <Icon icon="fa6-brands:linkedin-in" />
+                          </Link>
+                        </div>
+                      </Div>
+                    </Div>
+                  </div>
                   <span
                     className={
                       mobileToggle
@@ -329,7 +230,6 @@ export default function Header({ variant }) {
           onClick={() => setSideHeaderToggle(!sideHeaderToggle)}
         />
         <Div className="cs-side_header_in">
-          <Div className="cs-side_header_shape" />
           <Link className="cs-site_branding" to="/">
             <img src="/images/dmd_logo.png" alt="Logo" />
           </Link>
@@ -337,6 +237,55 @@ export default function Header({ variant }) {
             <h2 className="cs-side_header_heading">
               Do you want to connect with us?
             </h2>
+          </Div>
+          <Div>
+            <form action="#" className="row">
+              <Div className="col-sm-6">
+                <label className="cs-primary_color">Full Name</label>
+                <input
+                  onChange={(e) => {
+                    setMessageObj({ ...messageObj, name: e.target.value });
+                  }}
+                  type="text"
+                  className="cs-form_field"
+                />
+                <Spacing lg="20" md="20" />
+              </Div>
+              <Div className="col-sm-6">
+                <label className="cs-primary_color">Email</label>
+                <input
+                  onChange={(e) => {
+                    setMessageObj({ ...messageObj, email: e.target.value });
+                  }}
+                  type="text"
+                  className="cs-form_field"
+                />
+                <Spacing lg="20" md="20" />
+              </Div>
+              <Div className="col-sm-12">
+                <label className="cs-primary_color">Message</label>
+                <textarea
+                  cols="30"
+                  rows="7"
+                  className="cs-form_field"
+                  onChange={(e) => {
+                    setMessageObj({ ...messageObj, message: e.target.value });
+                  }}
+                ></textarea>
+                <Spacing lg="25" md="25" />
+              </Div>
+              <Div className="col-sm-12">
+                <button
+                  onClick={() => {
+                    sendMessage();
+                  }}
+                  className="cs-btn cs-style1"
+                >
+                  <span>Send Message</span>
+                  <Icon icon="bi:arrow-right" />
+                </button>
+              </Div>
+            </form>
           </Div>
           <Div className="cs-side_header_box">
             <ContactInfoWidget title="Contact Us" withIcon />

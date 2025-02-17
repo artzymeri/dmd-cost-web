@@ -36,7 +36,11 @@ const funfaceData = [
   },
   {
     title: 'Years of Experience',
-    factNumber: '10+',
+    factNumber: '20+',
+  },
+  {
+    title: 'Settlements in 2024',
+    factNumber: '£3M+',
   },
 ];
 
@@ -137,7 +141,6 @@ export default function Home() {
                 <Div className="col-lg-3 col-sm-6 cs-hidden_mobile"></Div>
                 <Div className="col-lg-3 col-sm-6">
                   <Card
-                    imgStyling={{width: '200px', height: '200px', objectFit: 'cover', objectPosition: 'center'}}
                     title="Bill & Statement of costs"
                     src="/images/blog1.jpg"
                     alt="Service"
@@ -208,20 +211,20 @@ export default function Home() {
       {/* End Blog Section */}
 
       {/* Start MovingText Section */}
-      <Spacing lg="125" md="70" />
+      {/* <Spacing lg="125" md="70" />
       <MovingText text="Our trusted partners" />
-      <Spacing lg="105" md="70" />
+      <Spacing lg="105" md="70" /> */}
       {/* End MovingText Section */}
 
       {/* Start LogoList Section */}
-      <Div className="container">
+      {/* <Div className="container">
         <LogoList />
-      </Div>
+      </Div> */}
       <Spacing lg="150" md="80" />
       {/* End LogoList Section */}
 
       {/* Start CTA Section */}
-      <Div className="container">
+      <Div className="container" style={{marginTop: '50px'}}>
         <Cta
           title="Let’s discuss and <br />let's <i>partner</i> together"
           btnText=""
