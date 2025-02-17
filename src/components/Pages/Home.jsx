@@ -212,15 +212,15 @@ export default function Home() {
       {/* End Blog Section */}
 
       {/* Start MovingText Section */}
-      <Spacing lg="125" md="70" />
+      {/* <Spacing lg="125" md="70" />
       <MovingText text="Our trusted partners" />
-      <Spacing lg="105" md="70" />
+      <Spacing lg="105" md="70" /> */}
       {/* End MovingText Section */}
 
       {/* Start LogoList Section */}
-      <Div className="container">
+      {/* <Div className="container">
         <LogoList />
-      </Div>
+      </Div> */}
       <Spacing lg="150" md="80" />
       {/* End LogoList Section */}
 
