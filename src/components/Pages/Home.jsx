@@ -57,21 +57,21 @@ export default function Home() {
             {/* Google Search console */}
         <meta name="google-site-verification" content="mrfzWvHxjPSVxPnQZEGicPz-RPueAMxX_whxlvNpqmE" />
         {/* Primary Meta Tags */}
-        <title>DMD Costs - Maximizing Legal Costs, Effortlessly</title>
+        <title>DMD Costs - Managing Legal Costs. Effortlessly.</title>
         <meta name="description" content="DMD Costs offers cost-effective legal solutions designed to maximize your recovery. Precision, efficiency, and expert strategies tailored to your needs." />
         <meta name="keywords" content="Legal Costs, Cost Recovery, Law Firm, Legal Budgeting, Cost Assessment, Litigation Costs" />
         <meta name="author" content="DMD Costs" />
         <link rel="canonical" href="https://www.dmdcosts.co.uk/" />
 
         {/* Open Graph / Facebook / LinkedIn */}
-        <meta property="og:title" content="DMD Costs - Maximizing Legal Costs, Effortlessly" />
+        <meta property="og:title" content="DMD Costs - Managing Legal Costs. Effortlessly." />
         <meta property="og:description" content="DMD Costs offers cost-effective legal solutions designed to maximize your recovery." />
         <meta property="og:image" content="https://www.dmdcosts.co.uk/images/dmd_logo.png" />
         <meta property="og:url" content="https://www.dmdcosts.co.uk/" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card */}
-        <meta name="twitter:title" content="DMD Costs - Maximizing Legal Costs, Effortlessly" />
+        <meta name="twitter:title" content="DMD Costs - Managing Legal Costs. Effortlessly." />
         <meta name="twitter:description" content="DMD Costs offers cost-effective legal solutions designed to maximize your recovery." />
         <meta name="twitter:image" content="https://www.dmdcosts.co.uk/images/dmd_logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -100,14 +100,14 @@ export default function Home() {
       </Helmet>
       {/* Start Hero Section */}
       <Hero
-        title="Maximizing Legal Costs.<br/> Effortlessly."
+        title="Managing Legal Costs.</br> Effortlessly."
         subtitle="Experience cost-effective legal solutions designed to maximize your recovery. Our expert team leverages innovative strategies to deliver precision, efficiency, and results tailored to your unique needs."
         btnText=""
         btnLink="/contact"
         scrollDownId="#service"
         socialLinksHeading="Follow Us"
         heroSocialLinks={heroSocialLinks}
-        bgImageUrl="/images/hero-gif.gif"
+        bgImageUrl="/images/laptop.gif"
       />
       {/* End Hero Section */}
 

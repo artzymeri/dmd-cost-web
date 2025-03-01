@@ -21,7 +21,7 @@ export default function Hero({
       style={{ backgroundImage: `url(${bgImageUrl})` }}
     >
       {/* Hidden Image for SEO & Accessibility */}
-      <img src={bgImageUrl} alt="DMD Costs Hero Section - Maximizing Legal Costs" style={{ display: "none" }} />
+      <img src={bgImageUrl} alt="DMD Costs Hero Section - Managing Legal Costs." style={{ display: "none" }} />
 
       <Div className="cs-shape_1" />
       <Div className="cs-shape_1" />
