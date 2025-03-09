@@ -7,14 +7,14 @@ import Div from '../Div';
 import SectionHeading from '../SectionHeading';
 import Spacing from '../Spacing';
 import Cta from '../Cta';
-import LogoList from '../LogoList';
-import MovingText from '../MovingText';
-import PortfolioSlider from '../Slider/PortfolioSlider';
+// import LogoList from '../LogoList';
+// import MovingText from '../MovingText';
+// import PortfolioSlider from '../Slider/PortfolioSlider';
 import PostSlider from '../Slider/PostSlider';
-import TestimonialSlider from '../Slider/TestimonialSlider';
-import TeamSlider from '../Slider/TeamSlider';
-import VideoModal from '../VideoModal';
-import TimelineSlider from '../Slider/TimelineSlider';
+// import TestimonialSlider from '../Slider/TestimonialSlider';
+// import TeamSlider from '../Slider/TeamSlider';
+// import VideoModal from '../VideoModal';
+// import TimelineSlider from '../Slider/TimelineSlider';
 import { pageTitle } from '../../helper';
 // Hero Social Links
 const heroSocialLinks = [
@@ -27,20 +27,20 @@ const heroSocialLinks = [
 // FunFact Data
 const funfaceData = [
   {
-    title: 'Trusted Clients',
+    title: 'Clients',
     factNumber: '10+',
   },
   {
-    title: 'Drafts Completed',
+    title: 'Bills Drafted in 2024',
     factNumber: '1K+',
   },
   {
-    title: 'Years of Experience',
+    title: 'Combined Experience',
     factNumber: '20+',
   },
   {
     title: 'Settlements in 2024',
-    factNumber: '£3M+',
+    factNumber: '£4M+',
   },
 ];
 
@@ -57,21 +57,21 @@ export default function Home() {
             {/* Google Search console */}
         <meta name="google-site-verification" content="mrfzWvHxjPSVxPnQZEGicPz-RPueAMxX_whxlvNpqmE" />
         {/* Primary Meta Tags */}
-        <title>DMD Costs - Managing Legal Costs. Effortlessly.</title>
+        <title>DMD Costs - Maximise Recovery, Minimise Delay.</title>
         <meta name="description" content="DMD Costs offers cost-effective legal solutions designed to maximize your recovery. Precision, efficiency, and expert strategies tailored to your needs." />
         <meta name="keywords" content="Legal Costs, Cost Recovery, Law Firm, Legal Budgeting, Cost Assessment, Litigation Costs" />
         <meta name="author" content="DMD Costs" />
         <link rel="canonical" href="https://www.dmdcosts.co.uk/" />
 
         {/* Open Graph / Facebook / LinkedIn */}
-        <meta property="og:title" content="DMD Costs - Managing Legal Costs. Effortlessly." />
+        <meta property="og:title" content="DMD Costs - Maximise Recovery, Minimise Delay." />
         <meta property="og:description" content="DMD Costs offers cost-effective legal solutions designed to maximize your recovery." />
         <meta property="og:image" content="https://www.dmdcosts.co.uk/images/dmd_logo.png" />
         <meta property="og:url" content="https://www.dmdcosts.co.uk/" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card */}
-        <meta name="twitter:title" content="DMD Costs - Managing Legal Costs. Effortlessly." />
+        <meta name="twitter:title" content="DMD Costs - Maximise Recovery, Minimise Delay." />
         <meta name="twitter:description" content="DMD Costs offers cost-effective legal solutions designed to maximize your recovery." />
         <meta name="twitter:image" content="https://www.dmdcosts.co.uk/images/dmd_logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -100,8 +100,10 @@ export default function Home() {
       </Helmet>
       {/* Start Hero Section */}
       <Hero
-        title="Managing Legal Costs.</br> Effortlessly."
-        subtitle="Experience cost-effective legal solutions designed to maximize your recovery. Our expert team leverages innovative strategies to deliver precision, efficiency, and results tailored to your unique needs."
+        title="Maximise Recovery, Minimise Delay."
+        subtitle="Experience cost-effective legal solutions that maximise your recovery and minimise
+        delays. Our expert team combines precision, efficiency, and strategic expertise to ensure
+        you recover every penny owed—quickly and accurately."
         btnText=""
         btnLink="/contact"
         scrollDownId="#service"
@@ -124,7 +126,7 @@ export default function Home() {
 
       {/* Start Service Section */}
       <Spacing lg="150" md="80" />
-      <Div id="service">
+      <Div id="service" style={{paddingTop: '120px'}}>
         <Div className="container">
           <Div className="row">
             <Div className="col-xl-4">
@@ -227,7 +229,12 @@ export default function Home() {
       {/* Start CTA Section */}
       <Div className="container">
         <Cta
-          title="Let’s discuss and <br />let's <i>partner</i> together"
+          title="At DMD Costs, we are committed to helping UK law firms recover their full legal costs with
+expert cost drafting, budgeting, and negotiation services. Whether you need Bills of Costs,
+Points of Dispute, or Part 8 Proceedings, our costs lawyers and draftsmen ensure accuracy,
+compliance, and maximum recovery.
+</br>
+Get in touch today to streamline your firm’s cost recovery!"
           btnText=""
           btnLink="/contact"
           bgSrc="/images/cta_bg.jpeg"

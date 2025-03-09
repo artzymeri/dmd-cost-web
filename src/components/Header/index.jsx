@@ -152,12 +152,6 @@ export default function Header({ variant }) {
                           </Div>
                         </form>
                       </Div>
-                      <Div
-                        className="cs-side_header_box"
-                        style={{ marginTop: "30px" }}
-                      >
-                        <ContactInfoWidget title="Contact Us" withIcon />
-                      </Div>
                       <Div className="cs-side_header_box">
                         <div
                           style={{
@@ -175,12 +169,19 @@ export default function Header({ variant }) {
                               alignItems: "center",
                               border: "1px solid white",
                               borderRadius: "50%",
+                              marginTop: "30px"
                             }}
                             to="https://www.linkedin.com/company/dmd-costs"
                           >
                             <Icon icon="fa6-brands:linkedin-in" />
                             </Link>
                         </div>
+                        <Div
+                        className="cs-side_header_box"
+                        style={{ marginTop: "30px" }}
+                      >
+                        <ContactInfoWidget title="Contact Us" withIcon />
+                      </Div>
                       </Div>
                     </Div>
                   </div>
@@ -287,9 +288,6 @@ export default function Header({ variant }) {
               </Div>
             </form>
           </Div>
-          <Div className="cs-side_header_box">
-            <ContactInfoWidget title="Contact Us" withIcon />
-          </Div>
           {/* <Div className="cs-side_header_box">
             <Newsletter
               title="Subscribe"
@@ -299,6 +297,9 @@ export default function Header({ variant }) {
           </Div> */}
           <Div className="cs-side_header_box">
             <SocialWidget />
+          </Div>
+          <Div className="cs-side_header_box">
+            <ContactInfoWidget title="Contact Us" withIcon />
           </Div>
         </Div>
       </Div>
