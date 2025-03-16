@@ -133,7 +133,7 @@ export default function Home() {
               <SectionHeading
                 title="Services we provide you"
                 subtitle="What Can We Do"
-                btnText=""
+                btnText="Learn more"
                 btnLink="/service"
               />
               <Spacing lg="90" md="45" />

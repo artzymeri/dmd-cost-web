@@ -7,7 +7,7 @@ import ErrorPage from './components/Pages/ErrorPage';
 import Home from './components/Pages/Home';
 // import PortfolioDetailsPage from './components/Pages/PortfolioDetailsPage';
 // import ServiceDetailsPage from './components/Pages/ServiceDetailsPage';
-// import ServicesPage from './components/Pages/ServicesPage';
+import ServicesPage from './components/Pages/ServicesPage';
 // import TeamPage from './components/Pages/TeamPage';
 // import PortfolioPage from './components/Pages/PortfolioPage';
 // import TeamDetails from './components/Pages/TeamDetails';
@@ -51,8 +51,8 @@ function App() {
             path="personal-portfolio"
             element={<PersonalPortfolioHome />}
           />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="service" element={<ServicesPage />} /> */}
+          <Route path="about" element={<AboutPage />} />*/}
+          <Route path="service" element={<ServicesPage />} /> 
           {/* <Route
             path="service/:serviceDetailsId"
             element={<ServiceDetailsPage />}
