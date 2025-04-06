@@ -19,9 +19,14 @@ export default function Header({ variant }) {
     name: "",
     email: "",
     message: "",
+    address: "",
+    phone_number: ""
   });
 
   const sendMessage = () => {
+    if (!messageObj?.name || !messageObj?.email || messageObj?.phone_number) {
+      return window.alert('Please fill out the required fields')
+    }
     emailjs
       .send(
         "service_w7bcwy9", // Your EmailJS service ID
@@ -40,6 +45,8 @@ export default function Header({ variant }) {
             name: "",
             email: "",
             message: "",
+            address: "",
+            phone_number: ""
           });
         },
         (error) => {
@@ -94,7 +101,7 @@ export default function Header({ variant }) {
                         <form action="#" className="row">
                           <Div className="col-sm-6">
                             <label className="cs-primary_color">
-                              Full Name
+                              Full Name *
                             </label>
                             <input
                               onChange={(e) => {
@@ -109,7 +116,7 @@ export default function Header({ variant }) {
                             <Spacing lg="20" md="20" />
                           </Div>
                           <Div className="col-sm-6">
-                            <label className="cs-primary_color">Email</label>
+                            <label className="cs-primary_color">Email *</label>
                             <input
                               onChange={(e) => {
                                 setMessageObj({
@@ -122,8 +129,38 @@ export default function Header({ variant }) {
                             />
                             <Spacing lg="20" md="20" />
                           </Div>
+                          <Div className="col-sm-6">
+                            <label className="cs-primary_color">
+                              Phone Number
+                            </label>
+                            <input
+                              onChange={(e) => {
+                                setMessageObj({
+                                  ...messageObj,
+                                  phone_number: e.target.value,
+                                });
+                              }}
+                              type="text"
+                              className="cs-form_field"
+                            />
+                            <Spacing lg="20" md="20" />
+                          </Div>
+                          <Div className="col-sm-6">
+                            <label className="cs-primary_color">Address</label>
+                            <input
+                              onChange={(e) => {
+                                setMessageObj({
+                                  ...messageObj,
+                                  address: e.target.value,
+                                });
+                              }}
+                              type="text"
+                              className="cs-form_field"
+                            />
+                            <Spacing lg="20" md="20" />
+                          </Div>
                           <Div className="col-sm-12">
-                            <label className="cs-primary_color">Message</label>
+                            <label className="cs-primary_color">Message *</label>
                             <textarea
                               cols="30"
                               rows="7"
@@ -242,7 +279,7 @@ export default function Header({ variant }) {
           <Div>
             <form action="#" className="row">
               <Div className="col-sm-6">
-                <label className="cs-primary_color">Full Name</label>
+                <label className="cs-primary_color">Full Name *</label>
                 <input
                   onChange={(e) => {
                     setMessageObj({ ...messageObj, name: e.target.value });
@@ -253,10 +290,32 @@ export default function Header({ variant }) {
                 <Spacing lg="20" md="20" />
               </Div>
               <Div className="col-sm-6">
-                <label className="cs-primary_color">Email</label>
+                <label className="cs-primary_color">Email *</label>
                 <input
                   onChange={(e) => {
                     setMessageObj({ ...messageObj, email: e.target.value });
+                  }}
+                  type="text"
+                  className="cs-form_field"
+                />
+                <Spacing lg="20" md="20" />
+              </Div>
+              <Div className="col-sm-6">
+                <label className="cs-primary_color">Address</label>
+                <input
+                  onChange={(e) => {
+                    setMessageObj({ ...messageObj, address: e.target.value });
+                  }}
+                  type="text"
+                  className="cs-form_field"
+                />
+                <Spacing lg="20" md="20" />
+              </Div>
+              <Div className="col-sm-6">
+                <label className="cs-primary_color">Phone Number *</label>
+                <input
+                  onChange={(e) => {
+                    setMessageObj({ ...messageObj, phone_number: e.target.value });
                   }}
                   type="text"
                   className="cs-form_field"
