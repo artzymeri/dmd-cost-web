@@ -33,7 +33,9 @@ export default function Header({ variant }) {
         "template_rlbz05d", // Your EmailJS template ID
         {
           from_email: messageObj.email, // Replace with actual recipient's name
-          from_name: messageObj.name, // Sender's name from state
+          from_name: messageObj.name,
+          from_address: messageObj.address,
+          from_phone_number: messageObj.phone_number, // Sender's name from state
           message: messageObj.message, // Message from state
         },
         "cIqLDI8jpPo_W7eG9" // Your actual EmailJS public key
