@@ -24,7 +24,7 @@ export default function Header({ variant }) {
   });
 
   const sendMessage = () => {
-    if (!messageObj?.name || !messageObj?.email || messageObj?.phone_number) {
+    if (messageObj.name == "" || messageObj?.email == "" || messageObj.phone_number == "" || messageObj.message == "") {
       return window.alert('Please fill out the required fields')
     }
     emailjs
